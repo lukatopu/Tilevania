@@ -8,13 +8,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float playerSpeed = 10f;
     [SerializeField] float jumpSpeed = 25f;
     [SerializeField] float climbSpeed = 10f;
+    [SerializeField] Transform gun;
+    [SerializeField] GameObject bullet;
 
     Vector2 moveInput;
     Rigidbody2D rb;
     Animator animator;
-    [SerializeField] CapsuleCollider2D playerBodyCollider;
-    [SerializeField] BoxCollider2D playerFeetCollider;
+    CapsuleCollider2D playerBodyCollider;
+    BoxCollider2D playerFeetCollider;
     float worldGravity;
+
+    bool isAlive = true;
 
 
 
@@ -30,18 +34,22 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         FlipSprite();
         ClimbLadder();
+        Die();
     }
 
     void OnMove(InputValue value)
     {
+        if (!isAlive) { return; }
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value)
     {
+        if (!isAlive) { return; }
         if (!playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (value.isPressed)
         {
@@ -68,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    
+
 
     void ClimbLadder()
     {
@@ -87,6 +95,26 @@ public class PlayerMovement : MonoBehaviour
         bool isTouchingGround = playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
         animator.SetBool("isClimbing", hasVerticalSpeed || !isTouchingGround);
     }
+
+
+    void OnAttack(InputValue value)
+    {
+        if (!isAlive) { return; }
+        Instantiate(bullet, gun.position, transform.rotation);
+    }
+
+    void Die()
+    {
+        if (playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards")))
+        {
+            isAlive = false;
+            animator.SetTrigger("Dying");
+            rb.linearVelocity = new Vector2(0f, jumpSpeed);
+        }
+    }
+
+
+
 
 
 }
