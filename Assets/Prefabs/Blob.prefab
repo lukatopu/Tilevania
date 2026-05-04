@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1300065502534688995}
   - component: {fileID: 8879272192604712325}
-  - component: {fileID: 931842247358955024}
+  - component: {fileID: 5024395681959957327}
   - component: {fileID: 837250725924232938}
   - component: {fileID: 1350112358507828464}
   - component: {fileID: 3011268092020695124}
   - component: {fileID: 6457164094796123268}
   m_Layer: 11
   m_Name: Blob
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,8 +96,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &931842247358955024
-BoxCollider2D:
+--- !u!70 &5024395681959957327
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,18 +130,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0012567043, y: -0.015594006}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.6875}
-    newSize: {x: 0.8125, y: 0.6875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.69371367, y: 0.59236145}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0040844376, y: 0.0071468963}
+  m_Size: {x: 0.72265, y: 0.6470945}
+  m_Direction: 1
 --- !u!50 &837250725924232938
 Rigidbody2D:
   serializedVersion: 5

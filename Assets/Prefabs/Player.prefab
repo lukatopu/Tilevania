@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 3397246455883191459}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1230068753
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 20
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7894484093430313499, guid: 4ae4816f391b9874f89184e1de37d55f, type: 3}
@@ -260,8 +260,8 @@ MonoBehaviour:
   playerSpeed: 7
   jumpSpeed: 20
   climbSpeed: 5
-  playerBodyCollider: {fileID: 0}
-  playerFeetCollider: {fileID: 0}
+  gun: {fileID: 4218341782862894135}
+  bullet: {fileID: 8615148910143565131, guid: 56f6158bcbdaa1548a76cf6f1500b27e, type: 3}
 --- !u!61 &3397246455883191459
 BoxCollider2D:
   m_ObjectHideFlags: 0
