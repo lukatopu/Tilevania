@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform gun;
     [SerializeField] GameObject bullet;
 
+
     Vector2 moveInput;
     Rigidbody2D rb;
     Animator animator;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         playerBodyCollider = GetComponent<CapsuleCollider2D>();
         worldGravity = rb.gravityScale;
         playerFeetCollider = GetComponent<BoxCollider2D>();
+
     }
 
 
@@ -110,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
             isAlive = false;
             animator.SetTrigger("Dying");
             rb.linearVelocity = new Vector2(0f, jumpSpeed);
+            FindAnyObjectByType<GameSession>().ProcessPlayerDeath();
         }
     }
 
